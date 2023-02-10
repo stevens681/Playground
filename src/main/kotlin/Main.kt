@@ -2,6 +2,7 @@ interface ProgressPrintable {
     val progressText: String
     fun printProgressBar()
 
+
 }
 class Quiz: ProgressPrintable{
     val question1 = Question<String>("Quoth the raven ___", "nevermore", Difficulty.MEDIUM)
@@ -22,6 +23,26 @@ class Quiz: ProgressPrintable{
         println()
         println(progressText)
     }
+    fun printQuiz(){
+        question1.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+        question2.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+        question3.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+    }
 }
 //val Quiz.StudentProgress.progressText: String
 //    get() = "${answered} of ${total} answered"
@@ -40,8 +61,12 @@ enum class Difficulty {
 //    println()
 //    println(Quiz.progressText)
 //}
+
 fun main() {
     //println(Quiz.progressText)
     //Quiz.printProgressBar()
     Quiz().printProgressBar()
+    val quiz = Quiz()
+    quiz.printQuiz()
+
 }
